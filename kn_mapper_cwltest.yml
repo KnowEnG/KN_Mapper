@@ -1,0 +1,14 @@
+- job: kn_mapper.job.yml
+  tool: kn_mapper.cwl
+  doc: Test if kn_mapper.cwl runs correctly
+  output:
+    {
+        "output_file": {
+            "checksum": "sha1$ceea2ec2ee4310f4f2743694e68950ffb16fb66a",
+            "basename": "sample_ids.node_map.txt",
+            "location": "Any",
+            "path": "Any",
+            "class": "File",
+            "size": 2180
+        }
+    }
