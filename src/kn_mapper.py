@@ -195,6 +195,7 @@ if __name__ == "__main__":
 
     args = main_parse_args()
     rdb = get_database(args.redis_host, args.redis_port, args.redis_pass)
+    outfile = args.outfile
     if args.outfile is None:
         outfile = os.path.splitext(os.path.basename(args.infile))[0] + '.node_map.txt'
     with open(args.infile, 'r') as infile, \
