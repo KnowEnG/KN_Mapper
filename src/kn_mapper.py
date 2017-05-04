@@ -114,7 +114,7 @@ def get_node_info(rdb, fk_array, ntype, hint, taxid):
 
 
 def conv_gene(rdb, fk_array, hint, taxid):
-    """Uses the redis database to convert a gene to ensemble stable id
+    """Uses the redis database to convert a gene to ensembl stable id
 
     This checks first if there is a unique name for the provided foreign key.
     If not it uses the hint and taxid to try and filter the foreign key
