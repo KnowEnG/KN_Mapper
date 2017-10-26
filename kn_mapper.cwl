@@ -24,7 +24,7 @@ inputs:
       position: 1
   redis_host:
     type: ["null", string]
-    default: knowredis.knowhub.org
+    default: knowredis.knoweng.org
     label: RedisDB URL
     doc: url of Redis db
     inputBinding:

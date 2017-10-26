@@ -16,7 +16,7 @@ import os
 from argparse import ArgumentParser
 import csv
 
-DEFAULT_REDIS_URL = 'knowredis.knowhub.org'
+DEFAULT_REDIS_URL = 'knowredis.knoweng.org'
 DEFAULT_REDIS_PORT = '6379'
 DEFAULT_REDIS_PASS = 'KnowEnG'
 DEFAULT_HINT = None

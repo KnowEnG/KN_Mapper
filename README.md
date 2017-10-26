@@ -43,7 +43,7 @@ A sample parameterization of the kn_mapper tool is present in this repo in `kn_m
 infile:
   class: File
   location: sample_ids.txt
-redis_host: knowredis.knowhub.org
+redis_host: knowredis.knoweng.org
 redis_port: 6380
 taxon: 9606
 ```
