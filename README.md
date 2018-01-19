@@ -15,14 +15,14 @@ this container and describe how to call kn_mapper for the community.
 Normally you would let [Quay.io](http://quay.io) build this.  But, if you need to build
 manually you would execute:
 
-    docker build -t quay.io/cblatti3/kn_mapper .
+    docker build -t kn_mapper .
 
 
 ## Running Manually
 
 ```
 # enter the docker container
-$ docker run -it -w='/home/ubuntu' -v `pwd`:/home/ubuntu quay.io/cblatti3/kn_mapper:latest
+$ docker run -it -w='/home/ubuntu' -v `pwd`:/home/ubuntu knoweng/kn_mapper:latest
 
 # run command within the docker container
 $ /home/src/kn_mapper.py /home/ubuntu/sample_ids.txt --redis_port 6380
