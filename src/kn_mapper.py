@@ -180,9 +180,9 @@ def node_desc(rdb, stable_array):
         list: list of lists containing 4 col info for each mapped node
     """
     ret_type = ["None"] * len(stable_array)
-    ret_alias = ["unmapped-none"] * len(stable_array)
-    ret_desc = ["unmapped-none"] * len(stable_array)
-    ret_biotype = ["unmapped-none"] * len(stable_array)
+    ret_alias = ["None"] * len(stable_array)
+    ret_desc = ["None"] * len(stable_array)
+    ret_biotype = ["None"] * len(stable_array)
     st_map_idxs = [idx for idx, st in enumerate(stable_array) if not st.startswith('unmapped')]
     if st_map_idxs:
         vals_array = rdb.mget(['::'.join(['stable', stable_array[i], 'type']) for i in st_map_idxs])
