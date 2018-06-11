@@ -22,6 +22,8 @@ DEFAULT_REDIS_PASS = 'KnowEnG'
 DEFAULT_HINT = None
 DEFAULT_TAXON = 9606
 
+MGET_CHUNK = 5000
+
 def main_parse_args():
     """Processes command line arguments.
 
@@ -97,11 +99,13 @@ def get_node_info(rdb, fk_array, ntype, hint, taxid):
 
     if ntype is None:
         res_arr = rdb.mget(['::'.join(['stable', str(fk), 'type']) for fk in fk_array])
-        fk_prop = [fk for fk, res in zip(fk_array, res_arr) if res is not None and res.decode() == 'Property']
-        fk_gene = [fk for fk, res in zip(fk_array, res_arr) if res is not None and res.decode() == 'Gene']
-        if len(fk_prop) > 0 and len(fk_gene) > 0:
+        fk_prop = [fk for fk, res in zip(fk_array, res_arr) if res is not None
+                   and res.decode() == 'Property']
+        fk_gene = [fk for fk, res in zip(fk_array, res_arr) if res is not None
+                   and res.decode() == 'Gene']
+        if fk_prop and fk_gene:
             raise ValueError("Mixture of property and gene nodes.")
-        ntype = 'Property' if len(fk_prop) > 0 else 'Gene'
+        ntype = 'Property' if fk_prop else 'Gene'
 
     if ntype == "Gene":
         stable_array = conv_gene(rdb, fk_array, hint, taxid)
@@ -142,10 +146,14 @@ def conv_gene(rdb, fk_array, hint, taxid):
         """Search redis for genes that still are unmapped
         """
         curr_none = [i for i in range(len(fk_array)) if ret_st[i] == 'unmapped-none']
-        if curr_none:
-            vals_array = rdb.mget([pattern.format(str(fk_array[i]).upper(), taxid, hint) for i in curr_none])
-            for i, val in zip(curr_none, vals_array):
-                if val is None: continue
+        while curr_none:
+            temp_curr_none = curr_none[:MGET_CHUNK]
+            curr_none = curr_none[MGET_CHUNK:]
+            vals_array = rdb.mget([pattern.format(str(fk_array[i]).upper(), taxid, hint)
+                                   for i in temp_curr_none])
+            for i, val in zip(temp_curr_none, vals_array):
+                if val is None:
+                    continue
                 ret_st[i] = val.decode()
 
     if hint is not None and taxid is not None:
@@ -174,21 +182,31 @@ def node_desc(rdb, stable_array):
     ret_type = ["None"] * len(stable_array)
     ret_alias = list(stable_array)
     ret_desc = list(stable_array)
+    ret_biotype = list(stable_array)
     st_map_idxs = [idx for idx, st in enumerate(stable_array) if not st.startswith('unmapped')]
     if st_map_idxs:
         vals_array = rdb.mget(['::'.join(['stable', stable_array[i], 'type']) for i in st_map_idxs])
         for i, val in zip(st_map_idxs, vals_array):
-            if val is None: continue
+            if val is None:
+                continue
             ret_type[i] = val.decode()
-        vals_array = rdb.mget(['::'.join(['stable', stable_array[i], 'alias']) for i in st_map_idxs])
+        vals_array = rdb.mget(['::'.join(['stable', stable_array[i], 'alias'])
+                               for i in st_map_idxs])
         for i, val in zip(st_map_idxs, vals_array):
-            if val is None: continue
+            if val is None:
+                continue
             ret_alias[i] = val.decode()
         vals_array = rdb.mget(['::'.join(['stable', stable_array[i], 'desc']) for i in st_map_idxs])
         for i, val in zip(st_map_idxs, vals_array):
-            if val is None: continue
+            if val is None:
+                continue
             ret_desc[i] = val.decode()
-    return stable_array, ret_type, ret_alias, ret_desc
+        vals_array = rdb.mget(['::'.join(['stable', stable_array[i], 'biotype']) for i in st_map_idxs])
+        for i, val in zip(st_map_idxs, vals_array):
+            if val is None:
+                continue
+            ret_biotype[i] = val.decode()
+    return stable_array, ret_type, ret_alias, ret_desc, ret_biotype
 
 
 if __name__ == "__main__":
@@ -205,4 +223,3 @@ if __name__ == "__main__":
         mapped = get_node_info(rdb, [line[0] if len(line) > 0 else '' for line in reader],
                                None, args.source_hint, args.taxon)
         writer.writerows(mapped)
-
