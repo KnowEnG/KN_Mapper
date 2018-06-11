@@ -220,6 +220,6 @@ if __name__ == "__main__":
         open(outfile, 'w') as n_map:
         reader = csv.reader(infile, delimiter='\t')
         writer = csv.writer(n_map, delimiter='\t', lineterminator='\n')
-        mapped = get_node_info(rdb, [line[0] if len(line) > 0 else '' for line in reader],
+        mapped = get_node_info(rdb, [line[0].strip() if line else '' for line in reader],
                                None, args.source_hint, args.taxon)
         writer.writerows(mapped)
