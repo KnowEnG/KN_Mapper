@@ -2,5 +2,5 @@ infile:
   class: File
   location: sample_props.txt
 redis_host: knowredis.knoweng.org
-redis_port: 6380
+redis_port: 6379
 taxon: 9606
