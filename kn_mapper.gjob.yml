@@ -1,0 +1,6 @@
+infile:
+  class: File
+  location: sample_genes.txt
+redis_host: knowredis.knoweng.org
+redis_port: 6380
+taxon: 9606

@@ -1,14 +1,28 @@
-- job: kn_mapper.job.yml
+- job: kn_mapper.gjob.yml
   tool: kn_mapper.cwl
-  doc: Test if kn_mapper.cwl runs correctly
+  doc: Test if kn_mapper.cwl runs correctly on Genes
   output:
     {
         "output_file": {
-            "checksum": "sha1$ceea2ec2ee4310f4f2743694e68950ffb16fb66a",
-            "basename": "sample_ids.node_map.txt",
+            "checksum": "sha1$48e850f9b71cbc0b7b4f755d545be3e282f134ff",
+            "basename": "sample_genes.node_map.txt",
             "location": "Any",
             "path": "Any",
             "class": "File",
-            "size": 2180
+            "size": 2201
+        }
+    }
+- job: kn_mapper.pjob.yml
+  tool: kn_mapper.cwl
+  doc: Test if kn_mapper.cwl runs correctly on Properties
+  output:
+    {
+        "output_file": {
+            "checksum": "sha1$09322defb0e8db290c90df3b6dced4c03619a137",
+            "basename": "sample_props.node_map.txt",
+            "location": "Any",
+            "path": "Any",
+            "class": "File",
+            "size": 1070
         }
     }
