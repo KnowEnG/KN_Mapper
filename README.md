@@ -3,7 +3,7 @@
 
 
 # KN_Mapper
-Download a subnetwork from the KnowEnG Knowledge Network
+Download map gene identifiers to identifiers used in the KnowEnG Knowledge Network
 
 A repo for the `Dockerfile` to create a Docker image for the kn_mapper.py command. Also contains the
 `Dockstore.cwl` which is used by the [Dockstore](https://www.dockstore.org) to register
