@@ -9,11 +9,20 @@ A repo for the `Dockerfile` to create a Docker image for the kn_mapper.py comman
 `Dockstore.cwl` which is used by the [Dockstore](https://www.dockstore.org) to register
 this container and describe how to call kn_mapper for the community.
 
+The input to this command is a file of gene ids or property ids, one per line.
+
+The output is a csv file with 6 columns in the current directory:
+ - The input id
+ - The mapped id
+ - Gene or Property
+ - The HGNC gene symbol
+ - The gene or property description
+ - The gene biotype (e.g. protein coding)
+
 
 ## Building Manually
 
-Normally you would let [Quay.io](http://quay.io) build this.  But, if you need to build
-manually you would execute:
+Normally you would let [Quay.io](http://quay.io) build this.  But, if you need to build manually you would execute:
 
     docker build -t kn_mapper .
 
@@ -25,9 +34,9 @@ manually you would execute:
 $ docker run -it -w='/home/ubuntu' -v `pwd`:/home/ubuntu knoweng/kn_mapper:latest
 
 # run command within the docker container
-$ /home/src/kn_mapper.py /home/ubuntu/sample_ids.txt --redis_port 6380
+$ /home/src/kn_mapper.py /home/ubuntu/sample_genes.txt --redis_port 6380
 ```
-You'll then see a map file, `sample_ids.node_map.txt`, in the current directory. The `-v` is used to mount this result out of the container.
+You'll then see a map file, `sample_genes.node_map.txt`, in the current directory. The `-v` is used to mount this result out of the container.
 
 ## Running Through the Dockstore CLI
 
@@ -42,9 +51,9 @@ A sample parameterization of the kn_mapper tool is present in this repo in `kn_m
 ```
 infile:
   class: File
-  location: sample_ids.txt
+  location: sample_genes.txt
 redis_host: knowredis.knoweng.org
-redis_port: 6380
+redis_port: 6379
 taxon: 9606
 ```
 
@@ -62,4 +71,12 @@ $ dockstore tool convert cwl2json --cwl Dockstore.cwl > Dockstore.json
 
 # run it locally with the Dockstore CLI
 $ dockstore tool launch --entry quay.io/cblatti3/kn_mapper:latest --yaml kn_mapper.job.yml
+```
+
+### Run without Docker
+
+You can also run the tool directly without docker:
+
+```
+src/kn_mapper.py sample_genes.txt -t 9606
 ```
