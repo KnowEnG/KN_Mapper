@@ -73,7 +73,7 @@ $ dockstore tool convert cwl2json --cwl Dockstore.cwl > Dockstore.json
 $ dockstore tool launch --entry quay.io/cblatti3/kn_mapper:latest --yaml kn_mapper.job.yml
 ```
 
-### Run without Docker
+## Run without Docker
 
 You can also run the tool directly without docker:
 
