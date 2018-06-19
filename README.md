@@ -34,7 +34,7 @@ Normally you would let [Quay.io](http://quay.io) build this.  But, if you need t
 $ docker run -it -w='/home/ubuntu' -v `pwd`:/home/ubuntu knoweng/kn_mapper:latest
 
 # run command within the docker container
-$ /home/src/kn_mapper.py /home/ubuntu/sample_genes.txt --redis_port 6380
+$ /home/src/kn_mapper.py /home/ubuntu/sample_genes.txt -t 9606
 ```
 You'll then see a map file, `sample_genes.node_map.txt`, in the current directory. The `-v` is used to mount this result out of the container.
 
