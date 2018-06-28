@@ -84,3 +84,15 @@ $ dockstore tool convert cwl2json --cwl Dockstore.cwl > Dockstore.json
 # run it locally with the Dockstore CLI
 $ dockstore tool launch --entry quay.io/cblatti3/kn_mapper:latest --yaml kn_mapper.job.yml
 ```
+
+## Setting Up a Copy of the Redis Database
+
+To set up your own copy of the redis database, you can grab the appropriate database dump and then start up a redis databse with it.  For example, with docker:
+
+```
+KNNET='20rep-1706'
+mkdir redis-$KNNET-6379
+aws s3 cp s3://KnowNets/KN-$KNNET/redis-KN-$KNNET.dump redis-$KNNET-6379/dump.rdb --region us-east-1
+# turn on redis
+docker run -d --restart=always     --name kn_redis-$KNNET-6379 -p 6379:6379     -v `pwd`/redis-$KNNET-6379:/data     redis redis-server --requirepass KnowEnG
+```
