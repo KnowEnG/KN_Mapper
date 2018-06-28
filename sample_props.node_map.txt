@@ -1,0 +1,15 @@
+skdjfhsad	skdjfhsad	None	None	None	None
+skjadhfkjsadf	skjadhfkjsadf	None	None	None	None
+sadkjfhkshdf	sadkjfhkshdf	None	None	None	None
+sadjfhjf	sadjfhjf	None	None	None	None
+		None	None	None	None
+GO_0002458	GO_0002458	Property	GO:0002458	peripheral T cell tolerance induction	None
+GO_1901668	GO_1901668	Property	GO:1901668	regulation of superoxide dismutase activity	None
+GO_0071673	GO_0071673	Property	GO:0071673	positive regulation of smooth muscle cell chemotaxis	None
+GO_0030195	GO_0030195	Property	GO:0030195	negative regulation of blood coagulation	None
+GO_0005309	GO_0005309	Property	GO:0005309	creatine:sodium symporter activity	None
+GO_0007161	GO_0007161	Property	GO:0007161	calcium-independent cell-matrix adhesion	None
+GO_0002676	GO_0002676	Property	GO:0002676	regulation of chronic inflammatory response	None
+GO_0072181	GO_0072181	Property	GO:0072181	mesonephric duct formation	None
+GO_0006166	GO_0006166	Property	GO:0006166	purine ribonucleoside salvage	None
+GO_0035087	GO_0035087	Property	GO:0035087	siRNA loading onto RISC involved in RNA interference	None

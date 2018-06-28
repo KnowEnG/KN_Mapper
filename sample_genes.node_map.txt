@@ -1,0 +1,33 @@
+unmapped-none	unmapped-none	None	None	None	None
+U66061.1	unmapped-none	None	None	None	None
+AE000661.1	unmapped-none	None	None	None	None
+AC099654.5	ENSG00000283230	Gene	ENSG00000283230	None	unprocessed_pseudogene
+AF347015.1	unmapped-none	None	None	None	None
+U66060.1	unmapped-none	None	None	None	None
+SSU_rRNA_5	unmapped-none	None	None	None	None
+U66059.1	unmapped-none	None	None	None	None
+	unmapped-none	None	None	None	None
+RLTPR	unmapped-none	None	None	None	None
+KCNE1L	unmapped-none	None	None	None	None
+PPYR1	unmapped-none	None	None	None	None
+ZFP106	unmapped-none	None	None	None	None
+TMEM180	unmapped-none	None	None	None	None
+SKIP	unmapped-none	None	None	None	None
+	unmapped-none	None	None	None	None
+TNMD	ENSG00000000005	Gene	TNMD	tenomodulin [Source:HGNC Symbol;Acc:HGNC:17757]	protein_coding
+DPM1	ENSG00000000419	Gene	DPM1	dolichyl-phosphate mannosyltransferase subunit 1, catalytic [Source:HGNC Symbol;Acc:HGNC:3005]	protein_coding
+SCYL3	ENSG00000000457	Gene	SCYL3	SCY1 like pseudokinase 3 [Source:HGNC Symbol;Acc:HGNC:19285]	protein_coding
+C1ORF112	ENSG00000000460	Gene	C1ORF112	chromosome 1 open reading frame 112 [Source:HGNC Symbol;Acc:HGNC:25565]	protein_coding
+FGR	ENSG00000000938	Gene	FGR	FGR proto-oncogene, Src family tyrosine kinase [Source:HGNC Symbol;Acc:HGNC:3697]	protein_coding
+CFH	ENSG00000000971	Gene	CFH	complement factor H [Source:HGNC Symbol;Acc:HGNC:4883]	protein_coding
+	unmapped-none	None	None	None	None
+ENSG00000254485	ENSG00000254485	Gene	ENSG00000254485	None	antisense
+LOC105376554	ENSG00000254486	Gene	LOC105376554	None	lincRNA
+ENSG00000254487	ENSG00000254487	Gene	ENSG00000254487	None	unprocessed_pseudogene
+ENSG00000254488	ENSG00000254488	Gene	ENSG00000254488	None	lincRNA
+LOC105376609	ENSG00000254489	Gene	LOC105376609	None	antisense
+ENSG00000254490	ENSG00000254490	Gene	ENSG00000254490	olfactory receptor family 5 subfamily M member 7 pseudogene [Source:HGNC Symbol;Acc:HGNC:14818]	unprocessed_pseudogene
+ENSG00000254491	ENSG00000254491	Gene	ENSG00000254491	None	processed_pseudogene
+ENSG00000254492	ENSG00000254492	Gene	ENSG00000254492	None	processed_pseudogene
+ENSG00000254495	ENSG00000254495	Gene	ENSG00000254495	None	antisense
+	unmapped-none	None	None	None	None
