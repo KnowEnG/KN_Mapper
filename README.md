@@ -1,4 +1,4 @@
-[![Docker Repository on Quay.io](https://quay.io/repository/cblatti3/kn_mapper/status "Docker Repository on Quay.io")](https://quay.io/repository/cblatti3/kn_mapper)
+![Docker Build Status](https://img.shields.io/docker/build/knoweng/kn_mapper.svg?style=flat-square)
 
 # KN_Mapper
 Tool for mapping gene identifiers to identifiers used in the KnowEnG Knowledge Network by querying the KnowNet Redis Database.
