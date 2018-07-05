@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install redis
 COPY src/kn_mapper.py /home/src/kn_mapper.py
-COPY sample_ids.txt /home/
+COPY sample_props.txt /home/
+COPY sample_genes.txt /home/
 
 # Set default contain command on run
 CMD /bin/bash
