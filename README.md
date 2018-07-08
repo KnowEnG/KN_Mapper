@@ -5,7 +5,7 @@ Tool for mapping gene identifiers to identifiers used in the KnowEnG Knowledge N
 
 This repo contains the Python3 `kn_mapper.py` command that performs the mapping.  It also contains a 
 `Dockerfile` to create a Docker image and a `Dockstore.cwl` which is used by the [Dockstore](https://www.dockstore.org) 
-to register thie corresponding Docker image container and describe how to call kn_mapper for the community.
+to register the corresponding Docker image container and describe how to call kn_mapper for the community.
 
 ## Usage
 
@@ -80,23 +80,6 @@ Normally you would use the latest build image.  But, if you need to build manual
     git clone https://github.com/KnowEnG/KN_Mapper.git
     cd KN_Mapper
     docker build -t kn_mapper .
-
-#### Running Through the Dockstore CLI
-
-This tool can be found at the [Dockstore](https://dockstore.org/containers/quay.io/cblatti3/kn_mapper), login with your GitHub account and follow the
-directions to setup the CLI.  It lets you run a Docker container with a CWL descriptor locally, using Docker and the CWL command line utility.
-
-Run it using the `dockstore` CLI:
-
-    Usage:
-    # fetch CWL
-    $ dockstore tool cwl --entry quay.io/cblatti3/kn_mapper:latest > Dockstore.cwl
-    
-    # make a runtime JSON template and edit it (or use the content of kn_mapper.job.yml above)
-    $ dockstore tool convert cwl2json --cwl Dockstore.cwl > Dockstore.json
-    
-    # run it locally with the Dockstore CLI
-    $ dockstore tool launch --entry quay.io/cblatti3/kn_mapper:latest --yaml kn_mapper.job.yml
 
 
 ## Setting Up a Copy of the Redis Database
