@@ -10,9 +10,7 @@ to register the corresponding Docker image container and describe how to call kn
 ## Usage
 
 #### Inputs
-The input to this tool is a file of gene identifiers or property identifiers, separated one per line.
-
-Example inputs in this repo include `sample_genes.txt` and `sample_props.txt`.
+The input to this tool is a file of gene identifiers or property identifiers, separated one per line. Example input files, `sample_genes.txt` and `sample_props.txt`, can be found in this repository.
 
 #### Outputs
 The output is by default a tab separated file with the file suffix '*.node_map.txt' with 6 columns in the current directory:
@@ -22,7 +20,8 @@ The output is by default a tab separated file with the file suffix '*.node_map.t
  - The official symbol or alias
  - The gene or property description
  - The gene biotype (e.g. protein coding)
-Example outputs in this repo include  `sample_genes.node_map.txt` and `sample_props.node_map.txt`
+ 
+Example output files, `sample_genes.node_map.txt` and `sample_props.node_map.txt`, can be found in this repository.
 
 #### Default Usage With Docker
 With Docker installed and the file you wish to map `your_genes.txt` in the current directory, a simple command is needed: 
